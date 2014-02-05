@@ -23,7 +23,7 @@
 
 typedef struct _xpf_line_ {
     int s;
-} xnd;
+} line ;
 
 
 #endif

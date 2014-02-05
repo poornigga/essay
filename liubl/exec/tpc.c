@@ -91,11 +91,17 @@ int tpc_analysis ( const char *path, mgt *m ) {
             int i=0;
             for(token = strtok(line, delim); token != NULL; token = strtok(NULL, delim)) {  
                 // update m, n
-                m->cur_node->m[i++] = atoi(token);
+                // m->cur_node->m[i++] = atoi(token);
+                if (i%2) {
+                    m->cur_node->y = atoi(token);
+                } else {
+                    m->cur_node->x = atoi(token);
+                }
+                i++;
             }
             m->node_count ++ ;
 
-        } else if (read > 3){
+        } else if (read > 3) {
             m->cur_node->ct = 0;
             char *token = strtok(line, delim);
             m->cur_node->num = atoi(token);
@@ -118,7 +124,7 @@ void pot_debug(mgt *m) {
     tpc_node *node = m->node;
     tpc_pot *pot ;
     for (int i=0; i<m->node_count; ++i) {
-        printf ( "node<%d of %d> :: m [%d] n[%d] num [%d] : \n",i, m->node_count,  node->m[0], node->m[1] , node->num);
+        printf ( "node<%d of %d> :: m [%d] n[%d] num [%d] : \n",i, m->node_count,  node->x, node->y , node->num);
         for (int j=0; j<node->ct; j++) {
             pot = node->pots[j];
             printf ( "\tPot : %.0f / %.6f / %.6f / %.3f / %.3f\n", pot->pt[0], pot->pt[1] , pot->pt[2] , pot->pt[3] , pot->pt[4]  );

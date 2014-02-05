@@ -21,6 +21,7 @@
 #include "xpf.h"
 
 
+/* 
 int main(void) {
 
     int serial = 21;
@@ -28,9 +29,8 @@ int main(void) {
     int row = 8, column = 9;
 
     exit(EXIT_SUCCESS);
-}
+} */
 
-/* 
 int main(void) {
 
     mgt *m = NULL;
@@ -49,4 +49,4 @@ int main(void) {
 
     free(m);
     exit(EXIT_SUCCESS);
-} */
+} 

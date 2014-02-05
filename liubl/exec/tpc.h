@@ -28,7 +28,8 @@ typedef struct _tpc_point_ {
 }tpc_pot;
 
 typedef struct _tpc_node {
-    int m[2];
+//     int m[2];
+    uint8_t x, y;
     int num;
     int ct;
     tpc_pot *pots[tpc_node_pot];
