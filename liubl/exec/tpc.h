@@ -24,7 +24,7 @@
 #pragma pack(push)
 #pragma pack(1)
 typedef struct _tpc_point_ {
-    double pt[5];
+    float pt[5];
 }tpc_pot;
 
 typedef struct _tpc_node {

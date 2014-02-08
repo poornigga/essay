@@ -16,6 +16,8 @@
  * =====================================================================================
  */
 
+
+#include <stdlib.h>
 #include "common.h"
 #include "tpc.h"
 
@@ -70,11 +72,12 @@ int tpc_analysis ( const char *path, mgt *m ) {
         exit(EXIT_FAILURE);
 
     while ((read = getdelim(&line, &len, '\n', fp)) != -1) {
-        if (read > 13) {
+        if (read > 15) {
             char *token;  
             int i=0;
             for(token = strtok(line, delim); token != NULL; token = strtok(NULL, delim)) {  
-                m->cur_pot->pt[i++] = atof(token);
+                double f = (float)((int)(atof(token) * 1000000)) / 1000000.0;
+                m->cur_pot->pt[i++] = f;
                 if (i == 5) { break; }
             }
             m->cur_node->pots[m->cur_node->ct++] = m->cur_pot;
