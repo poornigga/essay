@@ -76,8 +76,8 @@ int tpc_analysis ( const char *path, mgt *m ) {
             char *token;  
             int i=0;
             for(token = strtok(line, delim); token != NULL; token = strtok(NULL, delim)) {  
-                double f = (float)((int)(atof(token) * 1000000)) / 1000000.0;
-                m->cur_pot->pt[i++] = f;
+                // double f = (float)((int)(atof(token) * 100000)) / 100000.0;
+                m->cur_pot->pt[i++] = atof(token);
                 if (i == 5) { break; }
             }
             m->cur_node->pots[m->cur_node->ct++] = m->cur_pot;
