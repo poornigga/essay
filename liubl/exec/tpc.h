@@ -20,6 +20,8 @@
 
 #define tpc_pot_max 56000
 #define tpc_node_pot 256
+#define tpc_node_max 1024
+#define tpc_map_max 128
 
 #pragma pack(push)
 #pragma pack(1)
@@ -28,7 +30,7 @@ typedef struct _tpc_point_ {
 }tpc_pot;
 
 typedef struct _tpc_node {
-//     int m[2];
+//     struct _tpc_node *n, *p;
     uint8_t x, y;
     int num;
     int ct;
@@ -37,6 +39,8 @@ typedef struct _tpc_node {
 
 typedef struct _tpc_mgt_ {
     int node_count;
+    int map_num;
+    tpc_node *map[tpc_map_max];
     tpc_node *node;
     tpc_node *cur_node;
     int pot_count;
