@@ -129,7 +129,6 @@ int tpc_analysis ( const char *path, mgt *m ) {
 }
 
 
-
 void pot_debug(mgt *m) {
     if (NULL == m) return ;
     printf ( "Mgt : node->count [%d], pot->count[%d]\n", m->node_count, m->pot_count );
